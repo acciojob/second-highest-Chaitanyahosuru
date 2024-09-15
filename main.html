@@ -10,7 +10,6 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			function secondHighest(arr) {
     if (arr.length < 2) {
         return -Infinity;
     }
@@ -27,7 +26,6 @@
         } else if (current > secondHighest && current < highest) {
             secondHighest = current;
         }
-    }
     
     return secondHighest === -Infinity ? -Infinity : secondHighest;
 }
