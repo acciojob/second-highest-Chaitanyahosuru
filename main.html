@@ -8,40 +8,31 @@
 
 <body>	
 	<script>
+		function isUnique(arr){
+			const freq ={};
+			for(let i=0;i<arr.length;i++){
+				if(freq.hasOwnProperty(arr[i]))
+					freq[arr[i]]+=1;
+				else
+					freq[arr[i]] =1;
+			}
+			if(Object.values(freq).sort()[Object.values(freq).length-1]==1)
+				return true;
+			else
+				return false;
+			
+
+		}
 		function secondHighest(arr) {
-			//Write your code here
-    if (arr.length < 2) {
-        return -Infinity;
-    }
-    
-    let highest = -Infinity;
-    let secondHighest = -Infinity;
-    
-    for (let i = 0; i < arr.length; i++) {
-        let current = arr[i];
-        
-        if (current > highest) {
-            secondHighest = highest;
-            highest = current;
-        } else if (current > secondHighest && current < highest) {
-            secondHighest = current;
-        }
-    
-    return secondHighest === -Infinity ? -Infinity : secondHighest;
-}
-
-function Main() {
-    var n = prompt("Enter the number of elements");
-    var arr = [];
-    for (var i = 0; i < n; i++) {
-        arr[i] = parseInt(prompt("Enter element " + (i + 1)), 10);
-    }
-    alert(secondHighest(arr));
-}
-Main();
-
-			
-			
+			if (arr.length >1&&isUnique(arr)){
+				arr.sort((a,b) => a-b);
+				return arr[arr.length-2];
+				
+			}
+			else{
+				return -Infinity;
+			}
+					
 		}
 
 		function Main() {
